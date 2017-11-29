@@ -12,7 +12,11 @@ gunicorn = "*"
 "psycopg2" = "*"
 whitenoise = "*"
 requests = "*"
-
+django-rest-framework = "*"
+djoser = "*"
+django-filter = "*"
+markdown = "*"
+coreapi = "*"
 
 [requires]
 

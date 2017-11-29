@@ -2,7 +2,7 @@
 
 A Django App. Meant as a display of some backend programming skills.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+The whole set of resources are available on [banistmo.herokuapp.com](http://banistmo.herokuapp.com/)
 
 ## Running Locally
 
@@ -39,3 +39,6 @@ or
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Documentation
+This comes with a [companion dataset](transactions/management/dataset.csv). It can be inserted to your chosen database backend with the `import_dummy_data` management command.
+You can tun it with `python manage.py import_dummy_data`.
+

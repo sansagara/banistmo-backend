@@ -17,6 +17,7 @@ djoser = "*"
 django-filter = "*"
 markdown = "*"
 coreapi = "*"
+django-cors-headers = "*"
 
 [requires]
 

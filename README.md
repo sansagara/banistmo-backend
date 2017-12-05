@@ -2,7 +2,7 @@
 
 A Django App. Meant as a display of some backend programming skills.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+The whole set of resources are available on [banistmo.herokuapp.com](http://banistmo.herokuapp.com/)
 
 ## Running Locally
 
@@ -38,4 +38,18 @@ or
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+
+## About the Dataset
+- El identificador de las filas esta indexado en cero.
+- La fecha puede requerir parseo antes de ser insertada en un manejador.
+- El UUID debe ser un entero.
+- El TXN debe ser un decimal signed.
+- Los registros con fecha faltante deben ser insertados, pero considerados en los resultados.
+- Los registros con fecha faltante deben mostrarse al usuario final de alguna manera, sin que afecte agregados o cuentas.
+
+For more info, view the R Notebook [here](http://rpubs.com/sansagara/banistmo)
+
 ## Documentation
+This comes with a [companion dataset](transactions/management/dataset.csv). It can be inserted to your chosen database backend with the `import_dummy_data` management command.
+You can tun it with `python manage.py import_dummy_data`.
+

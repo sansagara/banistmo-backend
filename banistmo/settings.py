@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'coreapi',
     'djoser',
     'corsheaders',
+    "django_rq",
 )
 
 MIDDLEWARE = (
@@ -178,3 +179,23 @@ CORS_ALLOW_HEADERS = (
     'Pragma',
     'Cache-Control'
 )
+
+RQ_QUEUES = {
+    'default': {
+        'URL': os.getenv('REDIS_URL'),
+        'DEFAULT_TIMEOUT': 500,
+    },
+    'high': {
+        'URL': os.getenv('REDIS_URL'),
+        'DEFAULT_TIMEOUT': 500,
+    },
+    'low': {
+        'URL': os.getenv('REDIS_URL'),
+        'DEFAULT_TIMEOUT': 500,
+    }
+}
+
+BACKEND_URL = 'https://banistmo-back.herokuapp.com/'
+ADMIN_URL = BACKEND_URL + '/admin',
+DJANGO_RQ_URL = BACKEND_URL + '/queues'
+RQ_SHOW_ADMIN_LINK = True

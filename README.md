@@ -13,7 +13,9 @@ Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres]
 $ git clone git@github.com:sansagara/banistmo.git
 $ cd banistmo
 
+$ pipenv --three
 $ pipenv install
+$ pipenv shell
 
 $ createdb banistmo
 
@@ -53,3 +55,12 @@ For more info, view the R Notebook [here](http://rpubs.com/sansagara/banistmo)
 This comes with a [companion dataset](transactions/management/dataset.csv). It can be inserted to your chosen database backend with the `import_dummy_data` management command.
 You can tun it with `python manage.py import_dummy_data`.
 
+## Postman Collection
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b0355bf3e36511d2c209)
+
+## Documentation
+https://stackoverflow.com/questions/32681602/django-rest-framework-make-asynchronous-request-to-respond
+https://stackoverflow.com/questions/27881706/why-should-i-build-an-api-with-an-asynchronous-non-blocking-framework
+https://github.com/ui/django-rq
+http://www.django-rest-framework.org/
+https://redis.io/

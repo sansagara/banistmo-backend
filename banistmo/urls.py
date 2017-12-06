@@ -9,5 +9,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^auth/', include('djoser.urls')),
     url(r'^auth/', include('djoser.urls.authtoken')),
+    url(r'^queues/', include('django_rq.urls')),
     url(r'^transactions/', include('transactions.api.urls')),
+
 ]

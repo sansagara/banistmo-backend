@@ -18,6 +18,7 @@ django-filter = "*"
 markdown = "*"
 coreapi = "*"
 django-cors-headers = "*"
+django-rq = "*"
 
 [requires]
 

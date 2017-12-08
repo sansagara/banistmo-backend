@@ -14,3 +14,21 @@ class AvgTransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = ('pk', 'date', 'uuid', 'txn', 'avg_txn')
+
+
+class MonthAvgTransactionSerializer(serializers.ModelSerializer):
+    avg_txn = serializers.IntegerField(read_only=True)
+    month = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Transaction
+        fields = ('month', 'avg_txn')
+
+
+class DayAvgTransactionSerializer(serializers.ModelSerializer):
+    avg_txn = serializers.IntegerField(read_only=True)
+    day = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Transaction
+        fields = ('day', 'avg_txn')

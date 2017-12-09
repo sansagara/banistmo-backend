@@ -11,5 +11,3 @@ def get_txn_average():
                     .order_by('month'))
     serializer = MonthAvgTransactionSerializer(transactions, many=True)
     return serializer.data
-
-

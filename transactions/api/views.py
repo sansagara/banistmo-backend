@@ -15,9 +15,7 @@ import django_rq
 
 class TransactionList(generics.ListAPIView):
     """
-     Obtención de información transaccional de los clientes que reposa en una base de datos
-     y visualización gráfica de ingresos y egresos.
-     Lista
+    Get list of transactions.
     """
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
@@ -25,9 +23,7 @@ class TransactionList(generics.ListAPIView):
 
 class TransactionDetail(generics.RetrieveAPIView):
     """
-     Obtención de información transaccional de los clientes que reposa en una base de datos
-     y visualización gráfica de ingresos y egresos.
-     Detalle
+    Get a transaction details
     """
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
@@ -39,10 +35,10 @@ class TransactionDetail(generics.RetrieveAPIView):
 @permission_classes((IsAuthenticated,))
 def user_transaction_list(request, userid):
     """
-    Obtiene todas las transacciones de un determinado usuario
+    Get a list of transactions done by a particular user
     """
     try:
-        transactions = Transaction.objects.get(uuid=userid)
+        transactions = Transaction.objects.filter(uuid=userid)
     except Transaction.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -54,7 +50,8 @@ def user_transaction_list(request, userid):
 @permission_classes((IsAuthenticated,))
 def moving_average(request):
     """
-    Calculo de la media móvil de 3 días del flujo de caja neto.
+    Get the moving average for the last 3 days.
+    Not used in frontend app.
     """
     last_n_dates = Transaction.objects.order_by('-date').distinct('date').values_list('date', flat=True)[:3]
     transactions = Transaction.objects.filter(date__in=last_n_dates).order_by('-date')
@@ -66,7 +63,8 @@ def moving_average(request):
 @permission_classes((IsAuthenticated,))
 def moving_average_year(request, year=None):
     """
-    Get the moving average for all months of dataset.
+    Get the moving average for all months of specified year.
+    If no year is set, a year filter is not applied.
     """
     if year:
         transactions = (Transaction.objects.filter(
@@ -89,7 +87,8 @@ def moving_average_year(request, year=None):
 @permission_classes((IsAuthenticated,))
 def moving_average_month(request, month, year=None):
     """
-    Get the moving average for all days of specified month.
+    Get the moving average for all days of specified month and year.
+    If no year is set, a year filter is not applied.
     """
     if year:
         transactions = (Transaction.objects.filter(

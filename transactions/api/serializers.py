@@ -27,8 +27,9 @@ class MonthAvgTransactionSerializer(serializers.ModelSerializer):
 
 class DayAvgTransactionSerializer(serializers.ModelSerializer):
     avg_txn = serializers.IntegerField(read_only=True)
+    sum_txn = serializers.IntegerField(read_only=True)
     day = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Transaction
-        fields = ('day', 'avg_txn')
+        fields = ('day', 'sim_txn', 'avg_txn')

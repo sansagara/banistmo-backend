@@ -1,4 +1,4 @@
-from django.db.models import Avg
+from django.db.models import Avg, Sum
 from django.http import JsonResponse
 from django.conf import settings
 from rest_framework import generics
@@ -95,6 +95,7 @@ def moving_average_month(request, month, year=None):
             date__year=year, date__month=month)
                         .annotate(day=Day('date'))
                         .values('day')
+                        .annotate(sum_txn=Sum('txn'))
                         .annotate(avg_txn=Avg('txn'))
                         .order_by('day'))
     else:
@@ -102,6 +103,7 @@ def moving_average_month(request, month, year=None):
             date__month=month)
                         .annotate(day=Day('date'))
                         .values('day')
+                        .annotate(sum_txn=Sum('txn'))
                         .annotate(avg_txn=Avg('txn'))
                         .order_by('day'))
     serializer = DayAvgTransactionSerializer(transactions, many=True)

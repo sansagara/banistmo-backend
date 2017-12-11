@@ -133,15 +133,15 @@ The queues information can be seen from the Django Admin page, specifically on `
 ## Documentation
 
 ### Django in general
-https://www.djangoproject.com/
-http://www.django-rest-framework.org/
-https://github.com/sunscrapers/djoser
+- https://www.djangoproject.com/
+- http://www.django-rest-framework.org/
+- https://github.com/sunscrapers/djoser
 
 ### Async API
-https://github.com/ui/django-rq
-https://redis.io/
-https://stackoverflow.com/questions/32681602/django-rest-framework-make-asynchronous-request-to-respond
-https://stackoverflow.com/questions/27881706/why-should-i-build-an-api-with-an-asynchronous-non-blocking-framework
+- https://github.com/ui/django-rq
+- https://redis.io/
+- https://stackoverflow.com/questions/32681602/django-rest-framework-make-asynchronous-request-to-respond
+- https://stackoverflow.com/questions/27881706/why-should-i-build-an-api-with-an-asynchronous-non-blocking-framework
 
 
 ## About

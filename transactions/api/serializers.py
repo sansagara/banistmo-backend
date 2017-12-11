@@ -32,4 +32,4 @@ class DayAvgTransactionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Transaction
-        fields = ('day', 'sim_txn', 'avg_txn')
+        fields = ('day', 'sum_txn', 'avg_txn')

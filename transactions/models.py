@@ -3,7 +3,7 @@ from django.db.models import Func
 
 
 class Transaction(models.Model):
-    date = models.DateField()
+    date = models.DateField(null=True, blank=True)
     uuid = models.PositiveIntegerField()
     txn = models.DecimalField(max_digits=8, decimal_places=2)
 

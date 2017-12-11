@@ -1,5 +1,5 @@
 from django.db.models import Avg
-from transactions.api.serializers import GroupedAvgTransactionSerializer
+from transactions.api.serializers import MonthAvgTransactionSerializer
 from transactions.models import Transaction, Month
 
 
@@ -9,7 +9,5 @@ def get_txn_average():
                     .values('month')
                     .annotate(avg_txn=Avg('txn'))
                     .order_by('month'))
-    serializer = GroupedAvgTransactionSerializer(transactions, many=True)
+    serializer = MonthAvgTransactionSerializer(transactions, many=True)
     return serializer.data
-
-

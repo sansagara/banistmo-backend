@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Transaction
 
 # Configuration Admin
-admin.site.site_header = 'BANISTMO'
+admin.site.site_header = 'Banistmo'
 admin.site.site_title = "Internal App"
 admin.site.index_title = "Administration"
 

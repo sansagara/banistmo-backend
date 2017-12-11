@@ -71,12 +71,14 @@ def moving_average_year(request, year=None):
             date__year=year)
                         .annotate(month=Month('date'))
                         .values('month')
+                        .annotate(sum_txn=Sum('txn'))
                         .annotate(avg_txn=Avg('txn'))
                         .order_by('month'))
     else:
         transactions = (Transaction.objects
                         .annotate(month=Month('date'))
                         .values('month')
+                        .annotate(sum_txn=Sum('txn'))
                         .annotate(avg_txn=Avg('txn'))
                         .order_by('month'))
     serializer = MonthAvgTransactionSerializer(transactions, many=True)
